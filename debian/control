@@ -1,0 +1,33 @@
+Source: tinyrpc
+Maintainer: Marc Brinkmann <git@marcbrinkmann.de>
+Section: python
+Priority: optional
+Build-Depends: python-setuptools (>= 0.6b3), debhelper (>= 7), python-support (>= 0.8.4)
+Standards-Version: 3.8.4
+
+Package: python-tinyrpc
+Architecture: all
+Depends: ${misc:Depends}, ${python:Depends}
+XB-Python-Version: ${python:Versions}
+Provides: ${python:Provides}
+Description: A small, modular, transport and protocol neutral RPC library
+ tinyrpc: A small and modular way of handling web-related RPC
+ ============================================================
+ .
+ Motivation
+ ----------
+ .
+ As of this writing (in Jan 2013) there are a few jsonrpc_ libraries already out
+ there on PyPI_, most of them handling one specific use case (e.g. json via
+ WSGI, using Twisted, or TCP-sockets).
+ .
+ None of the libraries, however, made it easy to reuse the jsonrpc_-parsing bits
+ and substitute a different transport (i.e. going from json_ via TCP_ to an
+ implementation using WebSockets_ or 0mq_).
+ .
+ In the end, all these libraries have their own dispatching interfaces and a
+ custom implementation of handling jsonrpc_.
+ .
+ ``tinyrpc`` aims to do better by dividing the problem into cleanly
+ interchangeable parts that allow easy addition of new transport methods, RPC
+ protocols or dispatchers.
